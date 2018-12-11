@@ -22,6 +22,8 @@ export function main(_code,input) {
     let symbols = getSymbols(code);
     symbols = checkSymbols(symbols);
     replaceSymbols(symbols);
+    if(getElem(code).length === 0)
+        return {code:escodegen.generate(code),redLines:[],greenLines:[]};
     input = eval(input);
     let redLines = getRedLines(code,input);
     let greenLines = getGreenLines(code,input);
